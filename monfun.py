@@ -1,9 +1,9 @@
+from datetime import datetime
 import pymongo
 from pymongo import MongoClient
 import requests
 from requests.auth import HTTPDigestAuth
 from ipify import get_ip
-from datetime import datetime
 
 def cnx(mongod_connect):
     client = MongoClient(mongod_connect)
@@ -14,8 +14,8 @@ def cnx(mongod_connect):
     return ctweet
 
 def set_ip(atlas_group_id, atlas_api_key_public, atlas_api_key_private, deleteAfterDate):
-    resp = requests.post( "https://cloud.mongodb.com/api/atlas/v1.0/groups/{atlas_group_id}/accessList".format(atlas_group_id=atlas_group_id),
-        auth=HTTPDigestAuth(atlas_api_key_public, atlas_api_key_private),
+    resp = requests.post( "https://cloud.mongodb.com/api/atlas/v1.0/groups/{atlas_group_id}/accessList".
+    format(atlas_group_id=atlas_group_id),auth=HTTPDigestAuth(atlas_api_key_public, atlas_api_key_private),
         json=[{'ipAddress': get_ip(), 
               'deleteAfterDate': deleteAfterDate,
               'comment': 'replit :'+str(datetime.now().strftime("%Y-%m-%dT%H"))}])

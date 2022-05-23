@@ -1,6 +1,6 @@
-import os
 from datetime import datetime, timedelta
 import time
+import os
 import pandas as pd
 from monfun import cnx,set_ip
 from twifun import get_data,get_data2
@@ -68,8 +68,3 @@ while since_id_new != since_id_old:
   #  clx_old[document['id']]=document
   #  del clx_old[document['id']]['_id']
   #clx_old.update(clx_new)
-  
-
-
-
-      
