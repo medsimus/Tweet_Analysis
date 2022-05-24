@@ -47,7 +47,7 @@ while(since_id_new != since_id_old):
         since_id_new = tweets_data[-1]['id']
         for i in tweets_data:
             try:
-              clx[i["id"]]=i
+                clx[i["id"]]=i
               #print(i["created_at"])
             except:
                 pass
@@ -57,8 +57,8 @@ while(since_id_new != since_id_old):
 print('New records',len(clx))
 
 for x in clx:
-  ctweet.delete_one({ "id": x })
-  ctweet.insert_one(clx[x])
+    ctweet.delete_one({ "id": x })
+    ctweet.insert_one(clx[x])
 
 print('collection',ctweet.count_documents({}))
 print('Done at ',datetime.now().strftime("%Y-%m-%dT%H:%M"))
